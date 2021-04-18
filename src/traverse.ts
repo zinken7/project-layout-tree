@@ -10,7 +10,7 @@ let levInfos: LevInfo[] = [];
  * @param files
  */
  function sortFilesLikeVSCode (files: FilesStat[]) {
-    const directories = files.filter(item => item.isDirectory).sort();
+    const directories = files.filter(item => item.isDirectory).sort((a,b) => a.name.localeCompare(b.name));
     const nonDirectories = files.filter(item => !item.isDirectory).sort((a,b) => a.name.localeCompare(b.name));
     return directories.concat(nonDirectories);
   }
